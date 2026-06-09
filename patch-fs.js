@@ -57,4 +57,3 @@ fs.readlinkSync = function (targetPath, options) {
   return originalReadlinkSync.call(fs, targetPath, options);
 };
 
-console.log(`[FS Monkeypatch] Preloaded successfully in PID ${process.pid}`);

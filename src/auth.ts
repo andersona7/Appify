@@ -3,7 +3,8 @@ import Credentials from 'next-auth/providers/credentials';
 import Github from 'next-auth/providers/github';
 import Google from 'next-auth/providers/google';
 import { prisma } from '@/lib/db';
-import { Role } from '@prisma/client';
+
+const DEFAULT_USER_ROLE = 'ADMIN' as const;
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -47,7 +48,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             data: {
               email,
               name: email.split('@')[0],
-              role: Role.ADMIN, // First user is Admin
+              role: DEFAULT_USER_ROLE, // First user is Admin
               tenantId: newTenant.id,
               passwordHash: 'mock-pass-hash', // in production we would use bcrypt
             },
