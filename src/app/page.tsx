@@ -30,7 +30,7 @@ export default async function Home() {
             <span className="bg-gradient-to-r from-violet-500 to-indigo-500 w-8 h-8 rounded-lg flex items-center justify-center text-white text-sm shadow-md shadow-violet-900/35">
               A
             </span>
-            Antigravity <span className="text-violet-400 font-semibold text-xs px-2 py-0.5 rounded-full bg-violet-950/50 border border-violet-900/50">AppGen</span>
+            Appify <span className="text-violet-400 font-semibold text-xs px-2 py-0.5 rounded-full bg-violet-950/50 border border-violet-900/50">AI Builder</span>
           </div>
           <div className="flex items-center gap-4">
             <span className="text-slate-400 text-sm">Welcome back, Developer</span>

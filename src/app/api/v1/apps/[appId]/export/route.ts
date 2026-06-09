@@ -98,7 +98,7 @@ generator client {
     // README.md
     files['README.md'] = `# ${app.name}
 
-This application was compiled and exported using the Antigravity App Generator.
+This application was compiled and exported using Appify.
 
 ## Getting Started
 

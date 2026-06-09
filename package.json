@@ -1,11 +1,11 @@
 {
-  "name": "ai-app-builder",
+  "name": "appify",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node --require C:/Users/ander/.gemini/antigravity/brain/ef1c3253-dcb4-4118-a4d9-729e8c1f413e/scratch/patch-fs.js node_modules/next/dist/bin/next dev --webpack",
-    "build": "node --require C:/Users/ander/.gemini/antigravity/brain/ef1c3253-dcb4-4118-a4d9-729e8c1f413e/scratch/patch-fs.js node_modules/next/dist/bin/next build --webpack",
-    "start": "node --require C:/Users/ander/.gemini/antigravity/brain/ef1c3253-dcb4-4118-a4d9-729e8c1f413e/scratch/patch-fs.js node_modules/next/dist/bin/next start --webpack",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start --webpack",
     "lint": "eslint"
   },
   "dependencies": {

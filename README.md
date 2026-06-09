@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Appify
+
+Appify is the AI app builder experience for generating dynamic SaaS applications from natural language.
 
 ## Getting Started
 

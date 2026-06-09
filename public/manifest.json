@@ -1,6 +1,6 @@
 {
-  "short_name": "AppGen",
-  "name": "Antigravity AI App Generator",
+  "short_name": "Appify",
+  "name": "Appify AI App Builder",
   "description": "Metadata-driven AI SaaS application compiler and runtime engine.",
   "icons": [
     {

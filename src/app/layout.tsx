@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Antigravity AppGen - AI SaaS Application Generator",
-  description: "Generate fully functional SaaS applications including database models, forms, APIs, and workflows from natural language.",
+  title: "Appify - AI App Builder",
+  description: "Build and launch production-grade SaaS apps with Appify using natural language, dynamic forms, APIs, and workflows.",
 };
 
 export default function RootLayout({
@@ -30,21 +30,6 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#8b5cf6" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js').then(function(reg) {
-                    console.log('SW registered successfully:', reg.scope);
-                  }).catch(function(err) {
-                    console.log('SW registration failed:', err);
-                  });
-                });
-              }
-            `,
-          }}
-        />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

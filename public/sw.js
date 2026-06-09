@@ -1,4 +1,4 @@
-const CACHE_NAME = 'appgen-cache-v1';
+const CACHE_NAME = 'appify-cache-v1';
 const ASSETS_TO_CACHE = [
   '/',
   '/favicon.ico',

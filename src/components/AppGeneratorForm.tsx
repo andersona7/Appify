@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Sparkles, Terminal, ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function AppGeneratorForm() {
   const router = useRouter();
-  const [prompt, setPrompt] = useState('');
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const [hasPrompt, setHasPrompt] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [statusIndex, setStatusIndex] = useState(0);
   const [error, setError] = useState<string | null>(null);
@@ -24,7 +25,9 @@ export default function AppGeneratorForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!prompt.trim() || isGenerating) return;
+
+    const nextPrompt = textareaRef.current?.value.trim() ?? '';
+    if (!nextPrompt || isGenerating) return;
 
     setIsGenerating(true);
     setError(null);
@@ -44,7 +47,7 @@ export default function AppGeneratorForm() {
       const response = await fetch('/api/v1/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt }),
+        body: JSON.stringify({ prompt: nextPrompt }),
       });
 
       const data = await response.json();
@@ -84,9 +87,10 @@ export default function AppGeneratorForm() {
               </label>
               
               <textarea
+                ref={textareaRef}
                 id="prompt"
-                value={prompt}
-                onChange={(e) => setPrompt(e.target.value)}
+                defaultValue=""
+                onInput={(e) => setHasPrompt(e.currentTarget.value.trim().length > 0)}
                 placeholder="e.g. Create a CRM for sales teams with leads, contacts, pipelines, dashboards, authentication, and workflows."
                 className="w-full h-40 bg-slate-950/60 border border-slate-800 rounded-xl p-4 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent resize-none transition-all text-base"
                 required
@@ -99,7 +103,7 @@ export default function AppGeneratorForm() {
                 
                 <button
                   type="submit"
-                  disabled={!prompt.trim()}
+                  disabled={!hasPrompt}
                   className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 disabled:from-slate-800 disabled:to-slate-800 disabled:text-slate-600 text-white font-medium px-6 py-3 rounded-xl flex items-center gap-2 transition-all cursor-pointer shadow-lg hover:shadow-violet-900/30 disabled:cursor-not-allowed"
                 >
                   Generate Application
